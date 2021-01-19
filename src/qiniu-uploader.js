@@ -7,6 +7,14 @@
       this[name] = factory(jQuery);
   }
 })("qiniuUploader", function($){
+  if (!String.prototype.tempFormat) {
+    String.prototype.tempFormat = function () {
+      var args = arguments;
+      return this.replace(/{(\d+)}/g, function (match, number) {
+        return typeof args[number] != 'undefined' ? args[number] : match;
+      });
+    };
+  }
   var
   upload_img_item_tmpl =
     '<div img-id="{2}" upload-key="{3}" class="uploaditem{0}"><img src="{1}"><span class="leftbtn fa fa-arrow-circle-left"></span><span class="delbtn fa fa-times"></span><span class="progressmask"><span class="progresstxt">1%</span><span class="progress"></span></span></div>',
