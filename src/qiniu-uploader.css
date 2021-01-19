@@ -1,0 +1,184 @@
+/***************
+ *  uploaditem *
+ ***************/
+ .uploaditems{
+  min-height: 75px;
+}
+.uploaditems.gameimgs{
+  min-height: 243px;
+}
+.uploaditem{
+  float: left;
+  width: 100px;
+  min-height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  margin-right: 15px;
+  margin-bottom: 25px;
+}
+.uploaditem{
+}
+.uploaditem .additem{
+  background: url("./additem.jpg") no-repeat center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: 30px 30px;
+}
+.uploaditems .upimg{
+  display: block;
+  width: 60px;
+  max-height: 60px;
+  border: none;
+}
+.uploaditems.gameimgs .uploaditem{
+  width: 128px;
+  height: 228px;
+  max-height: 228px;
+}
+.uploaditems .editimg{
+  border: none;
+}
+.uploaditems .editimg img, .uploaditems .upimg img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 4px;
+}
+.uploaditems .editbtn, .uploaditems .delbtn{
+  position: absolute;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.uploaditems .delbtn{
+  right: 0;
+  z-index: 100;
+}
+.uploaditems .filetype{
+  background: url("./file.png") no-repeat center center;
+  background-size: auto 90%;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  margin: 0 auto;
+  width: 50px;
+}
+.uploaditems .editfile{
+  position: absolute;
+  width: 50%;
+  opacity: 0;
+  padding: 0;
+  left: 0;
+}
+.uploaditems.lbimg{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.uploaditem .progressmask, .uploaditem .progress, .uploaditem .progresstxt{
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  bottom: 0;
+}
+.uploaditem .progressmask{
+  display: none;
+  background-color: #fff;
+  z-index: 100;
+  height: 60px;
+}
+.uploaditem .progress{
+  z-index: 110;
+  height: 0;
+}
+.uploaditem .progresstxt{
+  line-height: 60px;
+  z-index: 120;
+  text-align: center;
+}
+.uploaditems.dropzone{
+  border: 1px solid rgba(0,0,0,.03);
+  min-height: 360px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: rgba(0,0,0,.03);
+  padding: 23px;
+  position: relative;
+  cursor: pointer;
+}
+.uploaditems.dropzone .art_file_drop{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.uploaditems.dropzone .default.message{
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity .3s ease-in-out;
+  -moz-transition: opacity .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out;
+  -ms-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+  position: absolute;
+  width: 500px;
+  font-size: 38px;
+  height: 1.5em;
+  line-height: 1.5em;
+  margin-left: -250px;
+  margin-top: -.75em;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+}
+.uploaditems.dropzone .uploaditem{
+  visibility: hidden;
+}
+.uploaditems.dropzone .uploaditem.upimg{
+  visibility: visible;
+  z-index: 1000;
+}
+.uploaditems.dropzone .upimg{
+  background: rgba(255,255,255,.8);
+  position: relative;
+  margin: 17px;
+  vertical-align: top;
+  border: 1px solid #acacac;
+  padding: 6px 6px 28px;
+  width: 114px;
+  max-height: 136px;
+  height: 136px;
+}
+.uploaditems.dropzone .editimg img, .uploaditems.dropzone .upimg img{
+  border-radius: 0;
+}
+.uploaditems.dropzone .delbtn{
+  font-size: 3em;
+  top: -.4em;
+  right: -.4em;
+}
+.uploaditems.dropzone .editbtn{
+  font-size: 1.5em;
+  right: 4px;
+}
+.uploaditems.dropzone .editfile{
+  left: auto;
+  right: 0;
+}
+.uploaditems.dropzone .size{
+  margin-top: 4px;
+  display: block;
+}
+.uploaditems.dropzone .progressmask{
+  bottom: 28px;
+  width: 100px;
+  height: 100px;
+}
+.uploaditems.dropzone .progresstxt{
+  line-height: 100px;
+}
+.uploaditems.dropzone .filename{
+  height: 100px;
+}
