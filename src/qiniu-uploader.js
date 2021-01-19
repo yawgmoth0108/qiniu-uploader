@@ -20,6 +20,7 @@
   qiniuUploader.prototype = {
     init: function(option) {
       var
+      filecheck = option.filecheck || FILECHECK_IMG,
       mainblock = $(option.filter);
       uploader = option.qiniuObj.uploader({
         runtimes: "html5, flash, html4",
@@ -27,7 +28,7 @@
         uptoken: option.token,
         get_new_uptoken: false,
         domain: "cdnxinli",
-        max_file_size: option.maxfilesize || "50mb",
+        max_file_size: option.maxfilesize || FILESIZE_IMG,
         flash_swf_url: "path/of/plupload/Moxie.swf",
         max_retries: 3,
         unique_names: true,
@@ -44,7 +45,7 @@
               // console.log(file);
               // 文件添加进队列后，处理相关的事情
               //预览文件
-              if (!!option.filecheck && option.filecheck.indexOf(getFileType(file.name)) < 0) {
+              if (!!filecheck && filecheck.indexOf(getFileType(file.name)) < 0) {
                 up.removeFile(file);
                 __pageAlert.showTimerAlert('上传文件类型不匹配');
                 return false
@@ -68,7 +69,7 @@
           "UploadProgress": function (up, file) {
             // 每个文件上传时，处理相关的事情
             // console.log(file.percent);
-            console.log(up)
+            // console.log(up)
             mainblock.find(".progressmask").last().show().find(".progresstxt").html(file.percent + "%").siblings(".progress").css("height", file.percent + "%");
           },
           "FileUploaded": function (up, file, info) {
@@ -129,12 +130,11 @@
           }
         }
       });
-      uploader.filecheck = option.filecheck;
       uploader.upReady = 0;
       mainblock.on("change", ".editfile", function (e) {
         var
         that = $(this);
-        if (!!uploader.filecheck && uploader.filecheck.indexOf(getFileType(this.files[0].name)) < 0) {
+        if (!!filecheck && filecheck.indexOf(getFileType(this.files[0].name)) < 0) {
           __pageAlert.showTimerAlert("上传文件类型不匹配");
           return;
         }
