@@ -280,6 +280,21 @@
         }
       }
     },
+    /**
+     *
+     * makeImgsHtml(['imgurl1', 'imgurl2'], '#upload_id');
+     */
+    makeImgsHtml: function(imgurls, filter) {
+      var self = this;
+      $(filter).chindren('div').prepend(getHtmlByDatas(imgurls, function(item){
+        if(VIDEO_TYPE.indexOf(mainapp.getFileType(item)) >= 0){
+            return upload_file_item_tmpl.tempFormat(" editimg", item, getFileType(item), item);
+        }else{
+            return upload_img_item_tmpl.tempFormat(" editimg", item, "", item);
+        }
+      }));
+      self.makeImgsEvent([$(filter)]);
+    },
     makeImgsEvent: function(items) {
       $.each(items, function(idx, item){
         var
@@ -300,5 +315,14 @@
 
   function getFileType(str) {
     return getFileExt(str)[0].replace(".", "");
+  }
+
+  function getHtmlByDatas(datas, tmpmaker) {
+    var tmp = "";
+    for(var i in datas){
+      var j = datas[i];
+      tmp += tmpmaker(j, parseInt(i));
+    }
+    return tmp;
   }
 });
