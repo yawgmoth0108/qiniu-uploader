@@ -286,8 +286,8 @@
      */
     makeImgsHtml: function(imgurls, filter) {
       var self = this;
-      $(filter).chindren('div').prepend(getHtmlByDatas(imgurls, function(item){
-        if(VIDEO_TYPE.indexOf(mainapp.getFileType(item)) >= 0){
+      $(filter).children('div').prepend(getHtmlByDatas(imgurls, function(item){
+        if(VIDEO_TYPE.indexOf(getFileType(item)) >= 0){
             return upload_file_item_tmpl.tempFormat(" editimg", item, getFileType(item), item);
         }else{
             return upload_img_item_tmpl.tempFormat(" editimg", item, "", item);
